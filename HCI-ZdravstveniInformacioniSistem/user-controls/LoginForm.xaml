@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="HCI_ZdravstveniInformacioniSistem.user_controls.LoginForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HCI_ZdravstveniInformacioniSistem.user_controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="160" d:DesignWidth="200" BorderBrush="#FFFCFCFC" BorderThickness="2,2,2,2">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <PasswordBox Name="Password_txtBox" Opacity="0" HorizontalAlignment="Center" Height="28" Grid.Row="1" VerticalAlignment="Center" Width="180" GotFocus="Password_txtBox_GotFocus" LostFocus="Password_TxtBox_LostFocus"/>
+
+        <TextBox Name="Username_txtBox" Opacity="0.8" HorizontalAlignment="Center" Height="30" TextWrapping="NoWrap" VerticalAlignment="Center" Width="180" GotFocus="Username_TxtBox_GotFocus" Foreground="#FF8A8585" FontStyle="Italic" LostFocus="Username_TxtBox_LostFocus" TabIndex="1"/>
+        <Label Name="Error_lbl" Content=""  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Height="30" Grid.Row="2" VerticalAlignment="Center" Width="180" Foreground="#FFF10404" FontSize="14" FontWeight="Black"/>
+
+
+        <TextBox x:Name="PasswordPlaceholder_txtBox"  Opacity="0.8" HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" Text="{Binding PasswordHolder, Mode=OneWay}" VerticalAlignment="Center" Width="180" GotFocus="PasswordPlaceholder_txtBox_GotFocus" Foreground="#FF8A8585" FontStyle="Italic" Grid.Row="1" TabIndex="2"/>
+    </Grid>
+</UserControl>

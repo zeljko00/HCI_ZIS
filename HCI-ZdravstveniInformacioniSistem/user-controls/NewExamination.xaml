@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="HCI_ZdravstveniInformacioniSistem.user_controls.NewExamination"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HCI_ZdravstveniInformacioniSistem.user_controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="1410" d:DesignWidth="800">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="0,10,0,10">
+        <Grid x:Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="2px"></RowDefinition>
+                <RowDefinition Height="220px"></RowDefinition>
+                <RowDefinition Height="60px"></RowDefinition>
+                <RowDefinition Height="180px"></RowDefinition>
+                <RowDefinition Height="160px"></RowDefinition>
+                <RowDefinition Height="160px"></RowDefinition>
+                <RowDefinition Height="160px"></RowDefinition>
+                <RowDefinition Height="60px"></RowDefinition>
+                <RowDefinition Height="60px"></RowDefinition>
+                <RowDefinition Height="40px"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="#FF5E5858" BorderThickness="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
+            <Border BorderBrush="#FF5E5858" BorderThickness="1" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
+            <Border BorderBrush="#FF5E5858" BorderThickness="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
+            <Border BorderBrush="#FF5E5858" BorderThickness="1" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
+            
+            <TextBox x:Name="SearchBar" Width="250px" Height="35" Grid.Row="0" HorizontalAlignment="Left" Margin="30,10,0,10" VerticalAlignment="Bottom" Foreground="#FF646161" GotFocus="SearchBar_TxtBox_GotFocus" TextChanged="SearchBar_TextChanged" FontWeight="Normal" LostFocus="SearchBar_LostFocus"></TextBox>
+            <ScrollViewer x:Name="PatientsScroll" VerticalScrollBarVisibility="Auto" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="30,10,30,10">
+                <Grid x:Name="PatientsGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="auto" Width="auto">
+                    <Grid.RowDefinitions>
+
+                    </Grid.RowDefinitions>
+                </Grid>
+            </ScrollViewer>
+            <Label x:Name="Title" Content="{Binding TitleContent, Mode=OneWay}" Grid.Row="3" Width="auto" VerticalAlignment="Bottom" Margin="10,10,10,10" HorizontalAlignment="Center" Foreground="#FF807D7D" FontSize="20" FontWeight="Bold" FontStyle="Italic"></Label>
+            <TextBox x:Name="ExamContent" Padding="5" MinHeight="160px"  Foreground="#FF646161" VerticalContentAlignment="Top" FontWeight="Light" Grid.Row="4" HorizontalAlignment="Stretch" Margin="30,10,30,10" GotFocus="ExamContent_GotFocus" LostFocus="ExamContent_LostFocus" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
+            <Grid Grid.Row="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="30,10,30,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Content="{Binding DiagnoseLbl, Mode=OneWay}" Foreground="#FF5E5858" Width="auto" MinHeight="30" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Grid.Row="4"></Label>
+                <Label Content="{Binding TreatmentLbl, Mode=OneWay}" Foreground="#FF5E5858" Width="auto" MinHeight="30" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" Grid.Row="4"></Label>
+                <ComboBox x:Name="DiagnosePicker" Height="25px" Width="350px" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,10,10" Grid.Column="0" SelectionChanged="DiagnosePicker_SelectionChanged"></ComboBox>
+                <ScrollViewer Margin="10,10,10,10" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                    <!--<TextBlock x:Name="Diagnoses"   Padding="5" Foreground="#FF5E5858" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="Wrap" FontSize="14"></TextBlock>-->
+                    <Grid x:Name="DiagnoseGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="DiagNameGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="0"></Grid>
+                        <Grid x:Name="XBtnGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1"></Grid>
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="30,10,30,10" Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="TreatmentPicker" Height="25px" Width="350px" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,10,10" Grid.Column="0"></ComboBox>
+                <TextBox VerticalContentAlignment="Top" x:Name="Manual" Width="200" Padding="5" MinHeight="80px" TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Bottom" Margin="10,0,0,15" HorizontalAlignment="Left" FontWeight="Normal" FontSize="14"/>
+                <Button VerticalAlignment="Bottom" Height="25px" Margin="0,0,25,45" MinWidth="110px" Content="{Binding TreatmentBtn,Mode=OneWay}" HorizontalAlignment="Right" Click="Button_Click"></Button>
+                <ScrollViewer Margin="10,10,10,10" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                    <!--<TextBlock x:Name="Treatment" Padding="5" TextWrapping="Wrap" Foreground="#FF5E5858" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  FontSize="14"></TextBlock>-->
+                    <Grid x:Name="TreatmentGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="TreatmentNameGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="0"></Grid>
+                        <Grid x:Name="TreatmentBtnGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1"></Grid>
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+            <Grid Grid.Row="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="30,10,30,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Content="{Binding RefferalLbl, Mode=OneWay}" Foreground="#FF5E5858" Width="auto" MinHeight="30" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Grid.Row="6"></Label>
+                <ComboBox x:Name="ReferalPicker" Height="25px" Width="350px" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,10,10" Grid.Column="0" SelectionChanged="ReferalPicker_SelectionChanged"></ComboBox>
+                <ScrollViewer Margin="10,10,10,10" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                    
+                <!--<TextBlock x:Name="Referalls" Padding="5" Foreground="#FF5E5858" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  FontSize="14" ></TextBlock>-->
+                    <Grid x:Name="RefferalGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="RefferalNameGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="0"></Grid>
+                        <Grid x:Name="RefferalBtnGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1"></Grid>
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+            <Label x:Name="DoctorLbl" Content="{Binding DoctorSignature, Mode=OneWay}" FontWeight="Bold" FontSize="18px" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="30,10,30,10" Grid.Row="8" Foreground="#FF5E5858"></Label>
+            <Label x:Name="DateLbl" Content="{Binding ExamDate, Mode=OneWay}" FontWeight="Bold" FontSize="20px" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="30,10,30,10" Grid.Row="8" Foreground="#FF5E5858"></Label>
+            <Button x:Name="SubmitBtn"  Content="{Binding SaveBtn, Mode=OneWay}" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="30" MinWidth="100" FontSize="16" Click="SubmitBtn_Click"></Button>
+            <Label x:Name="Feedback" Grid.Row="10" FontSize="20" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Red"></Label>
+        </Grid>
+    </ScrollViewer>
+</UserControl>
