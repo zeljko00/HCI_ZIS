@@ -90,6 +90,7 @@
     <Compile Include="DAO\PatientDAO.cs" />
     <Compile Include="DAO\PrescriptionDAO.cs" />
     <Compile Include="DAO\RefferalDAO.cs" />
+    <Compile Include="DAO\SpecializationDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="Exceptions\AlreadyExistsException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />

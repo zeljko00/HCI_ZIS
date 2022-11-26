@@ -123,6 +123,9 @@
     <Compile Include="user-controls\Medications.xaml.cs">
       <DependentUpon>Medications.xaml</DependentUpon>
     </Compile>
+    <Compile Include="user-controls\NewDoctorUC.xaml.cs">
+      <DependentUpon>NewDoctorUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="user-controls\NewExamination.xaml.cs">
       <DependentUpon>NewExamination.xaml</DependentUpon>
     </Compile>
@@ -187,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="user-controls\Medications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="user-controls\NewDoctorUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

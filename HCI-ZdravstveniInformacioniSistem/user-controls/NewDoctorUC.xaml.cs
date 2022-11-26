@@ -18,8 +18,8 @@ using System.Windows.Shapes;
 
 namespace HCI_ZdravstveniInformacioniSistem.user_controls
 {
-    
-    public partial class NewPatientUC : UserControl, INotifyPropertyChanged
+
+    public partial class NewDoctorUC : UserControl,INotifyPropertyChanged
     {
         private const string darkTheme = "dark";
         private const string lightTheme = "light";
@@ -27,7 +27,12 @@ namespace HCI_ZdravstveniInformacioniSistem.user_controls
         private const string srpLang = "SRP";
         private const string engLang = "ENG";
 
-        private PatientDAO patientDAO=new PatientDAO();
+        private MedicalDoctorDAO medicalDoctorDAO=new MedicalDoctorDAO();
+        private SpecializationDAO specialiazationDAO = new SpecializationDAO();
+        private HealthCareFacilityDAO healthCareFacilityDAO = new HealthCareFacilityDAO();
+
+        private List<HealthCareFacility> hcfs;
+        private List<string> specializations;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -73,7 +78,32 @@ namespace HCI_ZdravstveniInformacioniSistem.user_controls
             }
         }
 
-
+        private string spec;
+        public string Spec
+        {
+            get
+            {
+                return spec;
+            }
+            set
+            {
+                spec = value;
+                OnPropertyChanged("Spec");
+            }
+        }
+        private string hcf;
+        public string Hcf
+        {
+            get
+            {
+                return hcf;
+            }
+            set
+            {
+                hcf= value;
+                OnPropertyChanged("Hcf");
+            }
+        }
         private string nameContent;
         private string descContent;
         private string telContent;
@@ -106,6 +136,8 @@ namespace HCI_ZdravstveniInformacioniSistem.user_controls
                     nameContent = "Ime";
                     descContent = "Prezime";
                     telContent = "JMB";
+                    Spec = "Specijalizacija:";
+                    Hcf = "ZU:";
                     HideLblContent = "Izaberi datum";
                     SaveBtnContent = "Sačuvaj";
                 }
@@ -114,6 +146,8 @@ namespace HCI_ZdravstveniInformacioniSistem.user_controls
                     nameContent = "First name";
                     descContent = "Last name";
                     telContent = "ID";
+                    Spec = "Specialization:";
+                    Hcf = "HCF:";
                     HideLblContent = "Pick a date";
                     SaveBtnContent = "Save";
                 }
@@ -136,11 +170,20 @@ namespace HCI_ZdravstveniInformacioniSistem.user_controls
 
             }
         }
-        public NewPatientUC(string lang)
+        public NewDoctorUC(string lang)
         {
             InitializeComponent();
             DataContext = this;
             Lang = lang;
+
+            specializations = specialiazationDAO.ReadAllSpecializations();
+            hcfs = healthCareFacilityDAO.ReadAllHealthCareFacilities();
+
+            foreach (string s in specializations)
+                SpecCombo.Items.Add(s);
+
+            foreach (HealthCareFacility hcf in hcfs)
+                HcfCombo.Items.Add(hcf);
         }
         private void OnPropertyChanged(string info)
         {
@@ -153,17 +196,17 @@ namespace HCI_ZdravstveniInformacioniSistem.user_controls
         }
         private void SaveBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            if ("".Equals(Name.Text.Trim()) || "".Equals(Desc.Text.Trim()) || nameContent.Equals(Name.Text.Trim()) || descContent.Equals(Desc.Text.Trim()) || telContent.Equals(Tel.Text.Trim()) || "".Equals(Tel.Text.Trim()) || DatePicker.SelectedDate.HasValue==false)
+            if ("".Equals(Name.Text.Trim()) || "".Equals(Desc.Text.Trim()) || nameContent.Equals(Name.Text.Trim()) || descContent.Equals(Desc.Text.Trim()) || telContent.Equals(Tel.Text.Trim()) || "".Equals(Tel.Text.Trim()) || DatePicker.SelectedDate.HasValue == false || SpecCombo.SelectedValue==null || HcfCombo.SelectedValue==null)
                 Feedback = srpLang.Equals(Lang) ? "Popunite sva polja!" : "Fill all fields!";
-            else if(Tel.Text.Trim().Length!=13)
+            else if (Tel.Text.Trim().Length != 13)
                 Feedback = srpLang.Equals(Lang) ? "JMB mora imati 13 karaktera!" : "ID must be 13 characters long!";
             else
             {
                 try
                 {
                     Person person = new Person(-1, Name.Text.Trim(), Desc.Text.Trim(), Tel.Text.Trim(), Tel.Text.Trim(), DatePicker.SelectedDate.Value.ToString("dd.MM.yyyy"), DatePicker.SelectedDate.Value.ToString("dd.MM.yyyy"));
-                    Patient patient = new Patient(person,"MR#"+Tel.Text.Trim(), "-");
-                    patientDAO.CreatePatient(patient);
+                    MedicalDoctor medicalDoctor=new MedicalDoctor(person,SpecCombo.SelectedValue.ToString(),"MD#"+Tel.Text.Trim(),((HealthCareFacility)HcfCombo.SelectedValue).ID,0,0,0,false,"default","SRP",true);
+                    medicalDoctorDAO.CreateMedicalDoctor(medicalDoctor);
                     Feedback = srpLang.Equals(Lang) ? "Sačuvano!" : "Saved!";
                     Name.Text = nameContent;
                     Desc.Text = descContent;
@@ -175,7 +218,7 @@ namespace HCI_ZdravstveniInformacioniSistem.user_controls
                 }
                 catch (Exception)
                 {
-                    Feedback = srpLang.Equals(Lang) ? "Pacijent sa tim JMB-om već postoji!" : "Patient with specified ID already exists!";
+                    Feedback = srpLang.Equals(Lang) ? "Ljekar sa tim JMB-om već postoji!" : "Doctor with specified ID already exists!";
                 }
             }
         }

@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="HCI_ZdravstveniInformacioniSistem.user_controls.NewDoctorUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HCI_ZdravstveniInformacioniSistem.user_controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="800"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="420"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="Name" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="40,30,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="350" LostFocus="Name_LostFocus" GotFocus="Name_GotFocus"/>
+        <TextBox x:Name="Desc" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="434,30,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="350" LostFocus="Desc_LostFocus" GotFocus="Desc_GotFocus" AcceptsReturn="True" Height="27"/>
+        <Button x:Name="SaveBtn" Style="{StaticResource CustomButton}" Content="{Binding SaveBtnContent, Mode=OneWay}" HorizontalAlignment="Left" Height="34" Margin="155,210,0,0" VerticalAlignment="Top" Width="102" Click="SaveBtn_OnClick"/>
+        <Label Content="{Binding Feedback, Mode=OneWay}" HorizontalAlignment="Left" Height="38" Margin="40,249,0,0" VerticalAlignment="Top" Width="350" Foreground="Red" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Center" />
+        <TextBox x:Name="Tel" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="40,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="350" LostFocus="Tel_LostFocus" GotFocus="Tel_GotFocus" AcceptsReturn="True" Height="27"/>
+        <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Height="30" Margin="537,87,0,0" VerticalAlignment="Top" Width="144" FontWeight="Bold" FontSize="13" FirstDayOfWeek="Monday" DisplayDate="11.25.2022" BorderBrush="{x:Null}" SelectedDateChanged="DatePicker_OnSelect"/>
+        <Label x:Name="HideLbl" Content="{Binding HideLblContent, Mode=OneWay}" HorizontalAlignment="Left" Height="20" Margin="537,90,0,0" VerticalAlignment="Top" Width="116" Background="White" FontSize="11"/>
+        <ComboBox x:Name="SpecCombo" HorizontalAlignment="Left" Height="23" Margin="243,144,0,0" VerticalAlignment="Top" Width="214"/>
+        <ComboBox x:Name="HcfCombo" HorizontalAlignment="Left" Height="23" Margin="570,146,0,0" VerticalAlignment="Top" Width="214"/>
+        <Label Foreground="Gray" FontWeight="Bold" FontSize="16" Content="{Binding Spec, Mode=OneWay}" HorizontalAlignment="Left" Height="28" Margin="40,142,0,0" VerticalAlignment="Top" Width="175"/>
+        <Label Foreground="Gray" FontWeight="Bold"  FontSize="16" Content="{Binding Hcf, Mode=OneWay}" HorizontalAlignment="Left" Height="28" Margin="487,142,0,0" VerticalAlignment="Top" Width="72"/>
+
+    </Grid>
+</UserControl>

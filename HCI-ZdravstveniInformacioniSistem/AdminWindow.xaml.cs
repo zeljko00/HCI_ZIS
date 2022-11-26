@@ -38,6 +38,7 @@ namespace HCI_ZdravstveniInformacioniSistem
         private NewHCF newHCF;
         private NewPatientUC newPatientUC;
         private DoctorsUC doctorsUC;
+        private NewDoctorUC newDoctorUC;
 
 
         private string menuDoctor;
@@ -268,6 +269,8 @@ namespace HCI_ZdravstveniInformacioniSistem
             Grid.SetRow(newPatientUC, 1);
             doctorsUC=new DoctorsUC(medicalDoctor.Language);
             Grid.SetRow(doctorsUC, 1);
+            newDoctorUC = new NewDoctorUC(medicalDoctor.Language);
+            Grid.SetRow(newDoctorUC, 1);
 
             InitializeComponent();
             ChangeLangugage(medicalDoctor.Language);
@@ -312,6 +315,7 @@ namespace HCI_ZdravstveniInformacioniSistem
             ContentGrid.Children.Remove(newHCF);
             ContentGrid.Children.Remove(newPatientUC);
             ContentGrid.Children.Remove(doctorsUC);
+            ContentGrid.Children.Remove(newDoctorUC);
         }
 
         private void ChangeLangugage(string lang)
@@ -322,6 +326,7 @@ namespace HCI_ZdravstveniInformacioniSistem
             newHCF.Lang = lang;
             newPatientUC.Lang = lang;
             doctorsUC.Lang = lang;
+            newDoctorUC.Lang = lang;
 
             switch (lang)
             {
@@ -435,6 +440,8 @@ namespace HCI_ZdravstveniInformacioniSistem
         private void NewDoctor_Click(object sender, RoutedEventArgs e)
         {
             RemoveContent();
+            newDoctorUC.Lang = medicalDoctor.Language;
+            ContentGrid.Children.Add(newDoctorUC);
         }
         private void Services_Click(object sender, RoutedEventArgs e)
         {

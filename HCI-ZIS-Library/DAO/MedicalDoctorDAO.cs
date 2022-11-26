@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 
 using HCI_ZIS_Library.Model;
 using HCI_ZIS_Library.Util;
+using System.Runtime.InteropServices;
+using System.Reflection;
 
 namespace HCI_ZIS_Library.DAO
 {
@@ -33,28 +35,49 @@ namespace HCI_ZIS_Library.DAO
             command.Parameters.AddWithValue("@datum", medicalDoctor.Person.DateOfBirth);
             command.Parameters.AddWithValue("@MedicalDoctorname", medicalDoctor.Person.Username);
             command.Parameters.AddWithValue("@password", passwordHash);
-            
             command.Prepare();
+
+                int index=-1;
+                try
+                {
+                    command.ExecuteNonQuery();
+                    index = (int)command.LastInsertedId;
+                }
+                catch (Exception)
+                {
+                    cmd = " SELECT idOsoba from osoba WHERE JMB=@val";
+                    command = new MySqlCommand(cmd, connection);
+                    command.Parameters.AddWithValue("@val", medicalDoctor.Person.JMB);
+                    command.Prepare();
+                    MySqlDataReader rs=command.ExecuteReader();
+                    if (rs.Read())
+                    {
+                        index = rs.GetInt32("idOsoba");
+                    }
+                }
+                    databaseConnectionmanager.ReturnConnection(connection);
+                    return CreateDoctorOnly(medicalDoctor, index);
+                
+        }
+        private int CreateDoctorOnly(MedicalDoctor medicalDoctor, int index)
+        {
+                MySqlConnection connection = databaseConnectionmanager.GetConnection();
             try
             {
-                command.ExecuteNonQuery();
-                int index = (int)command.LastInsertedId;
-
-                cmd = " INSERT INTO ljekar (BrojLicence, idOsoba, specijalizacija, brojPregleda, brojUputnica, brojRecepata, isAdmin, Tema, Jezik,idZU) VALUES (@licenca, @id, @spec, @pregled, @uputnica, @recept, @admin, @tema, @jezik,@zu) ";
-                command = new MySqlCommand(cmd, connection);
-                command.Parameters.AddWithValue("@licenca", medicalDoctor.Licence);
-                command.Parameters.AddWithValue("@id", index);
-                command.Parameters.AddWithValue("@spec", medicalDoctor.Specialization);
-                command.Parameters.AddWithValue("@pregled", medicalDoctor.ExaminationNum);
-                command.Parameters.AddWithValue("@uputnica", medicalDoctor.RefferalNum);
-                command.Parameters.AddWithValue("@recept", medicalDoctor.PrescriptionNum);
-                command.Parameters.AddWithValue("@admin", medicalDoctor.IsAdmin==true?1:0);
-                command.Parameters.AddWithValue("@tema", medicalDoctor.Theme);
-                command.Parameters.AddWithValue("@jezik", medicalDoctor.Language);
-                command.Parameters.AddWithValue("@zu", medicalDoctor.HealthCareFacility);
-                command.Prepare();
-                command.ExecuteNonQuery();
-                index=(int)command.LastInsertedId;
+                string cmd = " INSERT INTO ljekar (BrojLicence, idOsoba, specijalizacija, brojPregleda, brojUputnica, brojRecepata, isAdmin, Tema, Jezik,idZU) VALUES (@licenca, @id, @spec, @pregled, @uputnica, @recept, @admin, @tema, @jezik, @zu) ";
+                MySqlCommand command1 = new MySqlCommand(cmd, connection);
+                command1.Parameters.AddWithValue("@licenca", medicalDoctor.Licence);
+                command1.Parameters.AddWithValue("@id", index);
+                command1.Parameters.AddWithValue("@spec", medicalDoctor.Specialization);
+                command1.Parameters.AddWithValue("@pregled", medicalDoctor.ExaminationNum);
+                command1.Parameters.AddWithValue("@uputnica", medicalDoctor.RefferalNum);
+                command1.Parameters.AddWithValue("@recept", medicalDoctor.PrescriptionNum);
+                command1.Parameters.AddWithValue("@admin", medicalDoctor.IsAdmin ? 1 : 0);
+                command1.Parameters.AddWithValue("@tema", medicalDoctor.Theme);
+                command1.Parameters.AddWithValue("@jezik", medicalDoctor.Language);
+                command1.Parameters.AddWithValue("@zu", medicalDoctor.HealthCareFacility);
+                command1.Prepare();
+                command1.ExecuteNonQuery();
                 databaseConnectionmanager.ReturnConnection(connection);
                 return index;
             }

@@ -115,7 +115,7 @@ namespace HCI_ZdravstveniInformacioniSistem.user_controls
                 DoctorsGrid.RowDefinitions.Add(rd);
 
                 Border border = new Border();
-                Grid.SetColumnSpan(border, 3);
+                Grid.SetColumnSpan(border, 2);
                 Grid.SetColumn(border, 0);
                 Grid.SetRow(border, counter);
                 border.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -136,7 +136,7 @@ namespace HCI_ZdravstveniInformacioniSistem.user_controls
                 Button xBtn = new Button();
                 xBtn.Margin = new System.Windows.Thickness(2, 2, 2, 2);
                 xBtn.Content = "+/-";
-                Grid.SetColumn(xBtn, 2);
+                Grid.SetColumn(xBtn, 1);
                 Grid.SetRow(xBtn, counter);
                 xBtn.Click += (object sender, RoutedEventArgs e) =>
                 {
@@ -148,21 +148,22 @@ namespace HCI_ZdravstveniInformacioniSistem.user_controls
                     medicalDoctorDAO.UpdateMedicalDoctor(md);
                 };
 
-                Button upBtn = new Button();
-                upBtn.Margin = new System.Windows.Thickness(2, 2, 2, 2);
-                Grid.SetColumn(upBtn, 1);
-                Grid.SetRow(upBtn, counter);
-                Binding binding2 = new Binding("Update");
-                binding2.Source = this;
-                upBtn.SetBinding(ContentProperty, binding2);
-                upBtn.Click += (object sender, RoutedEventArgs e) =>
-                {
-                    //update ljekara
-                };
+                //Button upBtn = new Button();
+                //upBtn.Margin = new System.Windows.Thickness(2, 2, 2, 2);
+                //Grid.SetColumn(upBtn, 1);
+                //Grid.SetRow(upBtn, counter);
+                //Binding binding2 = new Binding("Update");
+                //binding2.Source = this;
+                //upBtn.SetBinding(ContentProperty, binding2);
+                //upBtn.Click += (object sender, RoutedEventArgs e) =>
+                //{
+                //    //update ljekara
+                //};
+                //DoctorsGrid.Children.Add(upBtn);
 
                 DoctorsGrid.Children.Add(lbl);
                 DoctorsGrid.Children.Add(xBtn);
-                DoctorsGrid.Children.Add(upBtn);
+
                 counter++;
             }
         }

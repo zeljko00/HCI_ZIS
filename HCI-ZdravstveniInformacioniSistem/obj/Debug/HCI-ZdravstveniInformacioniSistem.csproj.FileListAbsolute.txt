@@ -72,3 +72,5 @@ C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSi
 C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\NewPatientUC.baml
 C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\DoctorsUC.g.cs
 C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\DoctorsUC.baml
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\NewDoctorUC.g.cs
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\NewDoctorUC.baml

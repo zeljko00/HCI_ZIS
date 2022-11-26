@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\App.xaml
-16681202664
+17-1367865103
 
-20298091282
+21-1004127659
 301774470877
-AdminWindow.xaml;DoctorScreen.xaml;user-controls\AccountPicker.xaml;user-controls\Dieases.xaml;user-controls\DoctorsUC.xaml;user-controls\ExaminationHistory.xaml;user-controls\InfoControl.xaml;MainWindow.xaml;PasswordChange.xaml;user-controls\LoginForm.xaml;user-controls\Medications.xaml;user-controls\NewExamination.xaml;user-controls\NewHCF.xaml;user-controls\NewHealthServiceUC.xaml;user-controls\NewMedUC.xaml;user-controls\NewPatientUC.xaml;
+AdminWindow.xaml;DoctorScreen.xaml;user-controls\AccountPicker.xaml;user-controls\Dieases.xaml;user-controls\DoctorsUC.xaml;user-controls\ExaminationHistory.xaml;user-controls\InfoControl.xaml;MainWindow.xaml;PasswordChange.xaml;user-controls\LoginForm.xaml;user-controls\Medications.xaml;user-controls\NewDoctorUC.xaml;user-controls\NewExamination.xaml;user-controls\NewHCF.xaml;user-controls\NewHealthServiceUC.xaml;user-controls\NewMedUC.xaml;user-controls\NewPatientUC.xaml;
 
 False
 
