@@ -88,7 +88,7 @@ namespace HCI_ZIS_Library.DAO
 
                 if (rs.Read())
                 {
-                    MedicalDoctor doctor = new MedicalDoctor(person, rs.GetString("specijalizacija"), rs.GetString("BrojLicence"), rs.GetInt32("idZU"),rs.GetInt32("brojPregleda"), rs.GetInt32("brojRecepata"), rs.GetInt32("brojUputnica"),rs.GetInt16("isAdmin")>0?true:false,rs.GetString("Tema"),rs.GetString("Jezik"));
+                    MedicalDoctor doctor = new MedicalDoctor(person, rs.GetString("specijalizacija"), rs.GetString("BrojLicence"), rs.GetInt32("idZU"),rs.GetInt32("brojPregleda"), rs.GetInt32("brojRecepata"), rs.GetInt32("brojUputnica"),rs.GetInt16("isAdmin")>0?true:false,rs.GetString("Tema"),rs.GetString("Jezik"),rs.GetInt16("aktivan")>0?true:false);
                     rs.Close();
                     databaseConnectionmanager.ReturnConnection(connection);
                     return doctor;
@@ -130,7 +130,7 @@ namespace HCI_ZIS_Library.DAO
 
                 if (rs.Read())
                 {
-                    MedicalDoctor doctor = new MedicalDoctor(person, rs.GetString("specijalizacija"), rs.GetString("BrojLicence"), rs.GetInt32("idZU"), rs.GetInt32("brojPregleda"), rs.GetInt32("brojRecepata"), rs.GetInt32("brojUputnica"), rs.GetInt16("isAdmin") > 0 ? true : false, rs.GetString("Tema"), rs.GetString("Jezik"));
+                    MedicalDoctor doctor = new MedicalDoctor(person, rs.GetString("specijalizacija"), rs.GetString("BrojLicence"), rs.GetInt32("idZU"), rs.GetInt32("brojPregleda"), rs.GetInt32("brojRecepata"), rs.GetInt32("brojUputnica"), rs.GetInt16("isAdmin") > 0 ? true : false, rs.GetString("Tema"), rs.GetString("Jezik"),rs.GetInt16("aktivan") > 0 ? true : false);
                     rs.Close();
                     databaseConnectionmanager.ReturnConnection(connection);
                     return doctor;
@@ -149,24 +149,39 @@ namespace HCI_ZIS_Library.DAO
                 return null;
             }
         }
+
+        public List<HCI_ZIS_Library.Model.MedicalDoctor> ReadAllMedicalDoctors()
+        {
+            MySqlConnection connection = databaseConnectionmanager.GetConnection();
+            String cmd = " SELECT * from ljekar";
+            MySqlCommand command = new MySqlCommand(cmd, connection);
+            command.Prepare();
+            MySqlDataReader rs = command.ExecuteReader();
+            List<MedicalDoctor> result = new List<MedicalDoctor>();
+                while (rs.Read())
+                {
+                    MedicalDoctor doctor = ReadMedicalDoctor(rs.GetInt32("idOsoba"));
+                    result.Add(doctor);
+                }
+            return result;
+
+        }
         public void UpdateMedicalDoctor(MedicalDoctor medicalDoctor)
         {
             String passwordHash = System.Convert.ToBase64String(new MD5CryptoServiceProvider().ComputeHash(ASCIIEncoding.ASCII.GetBytes(medicalDoctor.Person.Password)));
             MySqlConnection connection = databaseConnectionmanager.GetConnection();
-            String cmd = "UPDATE osoba SET JMB=@jmb, Ime=@ime, Prezime=@prezime, datumRodjenja=@datum, username=@username, password=@password WHERE idOsoba=@id";
+            String cmd = "UPDATE osoba SET Ime=@ime, Prezime=@prezime, datumRodjenja=@datum, password=@password WHERE idOsoba=@id";
             MySqlCommand command = new MySqlCommand(cmd, connection);
-            command.Parameters.AddWithValue("@jmb", medicalDoctor.Person.JMB);
             command.Parameters.AddWithValue("@ime", medicalDoctor.Person.Firstname);
             command.Parameters.AddWithValue("@prezime", medicalDoctor.Person.LastName);
             command.Parameters.AddWithValue("@datum", medicalDoctor.Person.DateOfBirth);
-            command.Parameters.AddWithValue("@username", medicalDoctor.Person.Username);
             command.Parameters.AddWithValue("@password", passwordHash);
             command.Parameters.AddWithValue("@id", medicalDoctor.Person.ID);
 
             command.Prepare();
             command.ExecuteNonQuery();
 
-            cmd = "UPDATE ljekar SET BrojLicence=@licenca, specijalizacija=@spec, idZU=@zu, brojPregleda=@pregled, brojUputnica=@uputnica, brojRecepata=@recept, isAdmin=@admin, Tema=@tema, Jezik=@jezik WHERE idOsoba=@id";
+            cmd = "UPDATE ljekar SET BrojLicence=@licenca, specijalizacija=@spec, idZU=@zu, brojPregleda=@pregled, brojUputnica=@uputnica, brojRecepata=@recept, isAdmin=@admin, Tema=@tema, Jezik=@jezik,aktivan=@val WHERE idOsoba=@id";
             command = new MySqlCommand(cmd, connection);
             command.Parameters.AddWithValue("@licenca", medicalDoctor.Licence);
             command.Parameters.AddWithValue("@spec", medicalDoctor.Specialization);
@@ -177,6 +192,7 @@ namespace HCI_ZIS_Library.DAO
             command.Parameters.AddWithValue("@admin", medicalDoctor.IsAdmin == true ? 1 : 0);
             command.Parameters.AddWithValue("@tema", medicalDoctor.Theme);
             command.Parameters.AddWithValue("@jezik", medicalDoctor.Language);
+            command.Parameters.AddWithValue("@val", medicalDoctor.Active?1:0);
             command.Parameters.AddWithValue("@id", medicalDoctor.Person.ID);
             command.Prepare();
             command.ExecuteNonQuery();

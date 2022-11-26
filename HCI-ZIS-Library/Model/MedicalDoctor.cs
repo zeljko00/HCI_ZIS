@@ -16,7 +16,10 @@ namespace HCI_ZIS_Library.Model
         public string Licence { get; set; }
         public int HealthCareFacility { get; set; }
 
+        public bool Active;
+
         private int examinationNum;
+
         public int ExaminationNum
         {
             get
@@ -60,7 +63,7 @@ namespace HCI_ZIS_Library.Model
         public string Theme { get; set; }
         public string Language { get; set; }
 
-        public MedicalDoctor(Person person, string specialization, string licence, int hcf, int examinationNum, int prescriptionNum, int refferalNum, bool isAdmin, string theme, string language)
+        public MedicalDoctor(Person person, string specialization, string licence, int hcf, int examinationNum, int prescriptionNum, int refferalNum, bool isAdmin, string theme, string language, bool active)
         {
             Person = person;
             Specialization = specialization;
@@ -72,6 +75,7 @@ namespace HCI_ZIS_Library.Model
             IsAdmin = isAdmin;
             Theme = theme;
             Language = language;
+            Active = active;
         }
 
         public MedicalDoctor()

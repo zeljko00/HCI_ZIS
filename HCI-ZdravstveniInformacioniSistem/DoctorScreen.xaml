@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HCI_ZdravstveniInformacioniSistem"
         xmlns:user_controls="clr-namespace:HCI_ZdravstveniInformacioniSistem.user_controls"
         mc:Ignorable="d"
-        Title="ZIS" Height="580" Width="880" FontSize="13" Closing="AutoSave_Closing" >
+        Title="ZIS" MinHeight="580" MinWidth="880" FontSize="13" Closing="AutoSave_Closing" >
     <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" MinWidth="310"/>

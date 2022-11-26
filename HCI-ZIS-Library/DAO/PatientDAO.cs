@@ -46,7 +46,6 @@ namespace HCI_ZIS_Library.DAO
                 command.Parameters.AddWithValue("@napomena", patient.Note);
                 command.Prepare();
                 command.ExecuteNonQuery();
-                index=(int)command.LastInsertedId;
                 databaseConnectionmanager.ReturnConnection(connection);
                 return index;
             }

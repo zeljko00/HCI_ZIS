@@ -12,6 +12,7 @@
                 <Setter Property="FontSize"  Value="22"/>
                 <Setter Property="FontWeight" Value="Bold"></Setter>
                 <Setter Property="MinWidth" Value="120" />
+                <Setter Property="MinHeight" Value="28"/>
                 <Setter Property="MaxHeight" Value="35" />
           
 

@@ -517,6 +517,7 @@ namespace HCI_ZdravstveniInformacioniSistem
                     MenuDiag = "Diagnoses";
                     MenuMed = "Medications";
                     MenuSett = "Settings";
+                    Password = "Change password";
                     Lang = "Language";
                     Lang1 = "Serbian";
                     Lang2 = "English";
@@ -602,6 +603,8 @@ namespace HCI_ZdravstveniInformacioniSistem
         private void Logout_OnClick(object sender, RoutedEventArgs e)
         {
             AutoSave_Closing(null,null);
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             DoctorWin.Close();
         }
     }

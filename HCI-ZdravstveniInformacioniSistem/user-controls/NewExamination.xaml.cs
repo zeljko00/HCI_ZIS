@@ -402,7 +402,7 @@ namespace HCI_ZdravstveniInformacioniSistem.user_controls
                 rd2.Height = new System.Windows.GridLength(30);
 
                 Label lbl = new Label();
-                lbl.Content = med.Name;
+                lbl.Content = str;
                 lbl.FontSize = 16;
                 lbl.MaxHeight = 30;
                 Button button = new Button();

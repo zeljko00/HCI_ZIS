@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_ZdravstveniInformacioniSistem.user_controls"
         mc:Ignorable="d"
-        Height="150" Width="400" Background="#FF8CBDB7">
+        Height="150" Width="400" Background="#FF8CBDB7" Top="300" Left="300" >
     <Grid>
         <Button x:Name="Doc" Style="{StaticResource CustomButton}" HorizontalAlignment="Left" Height="40" Margin="50,0,0,0" VerticalAlignment="Center" Width="91" Click="Doc_Click"/>
             <Button x:Name="Admin" Content="Admin" Style="{StaticResource CustomButton}" HorizontalAlignment="Right" Height="40" Margin="0,0,50,0" VerticalAlignment="Center" Width="91" Click="Admin_Click"/>

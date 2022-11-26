@@ -1,7 +1,10 @@
 ﻿
 FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\App.xaml;;
+FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\AdminWindow.xaml;;
 FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\DoctorScreen.xaml;;
+FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\user-controls\AccountPicker.xaml;;
 FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\user-controls\Dieases.xaml;;
+FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\user-controls\DoctorsUC.xaml;;
 FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\user-controls\ExaminationHistory.xaml;;
 FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\user-controls\InfoControl.xaml;;
 FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\MainWindow.xaml;;
@@ -9,5 +12,8 @@ FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniS
 FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\user-controls\LoginForm.xaml;;
 FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\user-controls\Medications.xaml;;
 FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\user-controls\NewExamination.xaml;;
-FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\user-controls\AccountPicker.xaml;;
+FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\user-controls\NewHCF.xaml;;
+FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\user-controls\NewHealthServiceUC.xaml;;
+FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\user-controls\NewMedUC.xaml;;
+FC:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\user-controls\NewPatientUC.xaml;;
 

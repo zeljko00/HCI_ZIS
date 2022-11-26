@@ -1,0 +1,48 @@
+﻿<Window  x:Name="AdminWin" x:Class="HCI_ZdravstveniInformacioniSistem.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_ZdravstveniInformacioniSistem"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="450" Width="900" Closed="AutoSave_Closing" MinHeight="500" MinWidth="900">
+    <Grid x:Name="ContentGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30px"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="#FF5E5858" BorderThickness="1.5" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+        <Menu x:Name="Menu" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Height="auto" Margin="8,0,0,0" VerticalAlignment="Bottom" Width="auto" Background="{x:Null}">
+            <MenuItem Style="{StaticResource ParentMenuItem}"  Header="{Binding MenuDoctor, Mode=OneWay}" Height="auto" Width="auto" Margin="0,0,8,0">
+                <MenuItem Style="{StaticResource ParentMenuItem}" Header="{Binding Doctors, Mode=OneWay}" Height="26px" Width="auto" FontSize="13" Click="Doctors_Click"/>
+                <MenuItem  Style="{StaticResource ParentMenuItem}" Header="{Binding NewDoctor, Mode=OneWay}" Height="26px" Width="auto" FontSize="13" Click="NewDoctor_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/plus.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Style="{StaticResource ParentMenuItem}" Header="{Binding MenuMeds, Mode=OneWay}" Margin="0,0,8,0" Click="Meds_Click"></MenuItem>
+            <MenuItem Style="{StaticResource ParentMenuItem}" Header="{Binding MenuServices, Mode=OneWay}" Margin="0,0,8,0" Click="Services_Click"></MenuItem>
+            <MenuItem Style="{StaticResource ParentMenuItem}" Header="{Binding MenuHCFacilities, Mode=OneWay}" Margin="0,0,8,0" Click="HCFacility_Click"></MenuItem>
+            <MenuItem Style="{StaticResource ParentMenuItem}" Header="{Binding MenuPatient, Mode=OneWay}" Margin="0,0,8,0" Click="Patient_Click"></MenuItem>
+            <MenuItem x:Name="SettingsItem" Style="{StaticResource ParentMenuItem}" Header="{Binding MenuSett, Mode=OneWay}" Margin="0,0,8,0">
+                <MenuItem Style="{StaticResource MenuItemChild}" Background="White" Header="{Binding Lang, Mode=OneWay}" Height="28px" Width="auto" FontSize="14">
+                    <MenuItem.Icon>
+                        <Image Source="/lang.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem x:Name="SRP" Style="{StaticResource ParentMenuItem}" Header="{Binding Lang1, Mode=OneWay}" Height="26px" Width="auto" FontSize="13" Checked="SRP_Checked" IsCheckable="True"></MenuItem>
+                    <MenuItem x:Name="ENG" Style="{StaticResource ParentMenuItem}" Header="{Binding Lang2, Mode=OneWay}" Height="26px" Width="auto" FontSize="13" Checked="ENG_Checked" IsCheckable="True"></MenuItem>
+                </MenuItem>
+                <MenuItem Style="{StaticResource MenuItemChild}" Background="White" Header="{Binding Theme, Mode=OneWay}" Height="28px" Width="auto" FontSize="14">
+                    <MenuItem.Icon>
+                        <Image Source="/theme.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem x:Name="Default" Style="{StaticResource ParentMenuItem}" Header="{Binding ThemeDef, Mode=OneWay}" Height="26px" Width="auto" FontSize="13" Checked="Default_Checked" IsCheckable="True"></MenuItem>
+                    <MenuItem x:Name="Dark" Style="{StaticResource ParentMenuItem}" Header="{Binding ThemeD, Mode=OneWay}" Height="26px" Width="auto" FontSize="13" Checked="Dark_Checked" IsCheckable="True"></MenuItem>
+                    <MenuItem x:Name="Light" Style="{StaticResource ParentMenuItem}" Header="{Binding ThemeL, Mode=OneWay}" Height="26px" Width="auto" FontSize="13" Checked="Light_Checked" IsCheckable="True"></MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Style="{StaticResource ParentMenuItem}" Header="{Binding Logout, Mode=OneWay}" Margin="0,0,8,0" Click="Logout_Click"></MenuItem>
+        </Menu>
+    </Grid>
+</Window>

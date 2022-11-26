@@ -45,7 +45,9 @@ namespace HCI_ZdravstveniInformacioniSistem.user_controls
 
         private void Admin_Click(object sender, RoutedEventArgs e)
         {
-
+            AdminWindow adminWidnow = new AdminWindow(medicalDoctor);
+            adminWidnow.Show();
+            this.Close();
         }
     }
 }

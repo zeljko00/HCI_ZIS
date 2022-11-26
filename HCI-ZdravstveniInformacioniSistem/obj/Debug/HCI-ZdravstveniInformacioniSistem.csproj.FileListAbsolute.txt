@@ -37,7 +37,6 @@ C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSi
 C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\bin\Debug\K4os.Compression.LZ4.xml
 C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\bin\Debug\K4os.Hash.xxHash.xml
 C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\bin\Debug\System.Numerics.Vectors.xml
-C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\HCI-ZdravstveniInformacioniSistem.exe.config
 C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\LoginForm.g.cs
 C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\App.baml
@@ -59,3 +58,17 @@ C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSi
 C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\NewExamination.baml
 C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\AccountPicker.g.cs
 C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\AccountPicker.baml
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\AdminWindow.g.cs
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\AdminWindow.baml
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\NewMedUC.g.cs
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\NewMedUC.baml
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\NewHealthServiceUC.g.cs
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\NewHealthServiceUC.baml
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\NewHCF.g.cs
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\NewHCF.baml
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\NewPatientUC.g.cs
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\NewPatientUC.baml
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\DoctorsUC.g.cs
+C:\Visual Studio\HCI-ZdravstveniInformacioniSistem\HCI-ZdravstveniInformacioniSistem\obj\Debug\user-controls\DoctorsUC.baml
